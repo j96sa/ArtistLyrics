@@ -13,7 +13,7 @@ export const Header = ({ off,currentComponent }) => {
       {!off && (
         <section className="mode_button-section">
           <section className="mode-button">
-            <figure></figure>
+            <figure className=""></figure>
           </section>
         </section>
       )}

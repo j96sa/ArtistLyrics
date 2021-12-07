@@ -1,9 +1,8 @@
 @import url(./assets/var.css);
-@import url(./assets/header.css);
+@import url(./assets/header.css); 
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap');
 
 body{
-  background: black;
-  color:#fff;
+  color:var(--font-color-normal);
   font-family: 'Source Sans Pro', sans-serif;
 }

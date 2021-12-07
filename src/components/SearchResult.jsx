@@ -1,14 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 import { fetchRequest } from '../helpers/fetchRequest';
-import { Header } from './Header'
+import { Header } from './Header';
+import "../assets/searchresult.css";
 
 
 export const SearchResult = () => {
+    //variables para guardar los datos retornados de la API
     const [art, setArt] = useState(undefined);
     const [sng, setSng] = useState(undefined);
+    //variable que guarda los valores a buscar en la API
     let {artist,song} = useParams();
 
+    /* EFFECTO PARA OBTENER LOS DATOS DE LA BUSQUEDA */
     useEffect(() => {
         const getArtistData = async ()=>{
             let res = await fetchRequest(`https://theaudiodb.com/api/v1/json/2/search.php?s=${artist}`);
