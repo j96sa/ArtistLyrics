@@ -52,10 +52,18 @@
   background: var(--dark-background);
   transition: 0.5s;
 }
-.mode-button figure.light-mode {
-  transform: translateX(100%);
-}
 
+/************************************************* EFFECTOS PARA EL LIGHT-MODE */
+.header.light-mode .header-links a{
+  color: var(--dark-background);
+}
+.header.light-mode .mode-button figure{
+  transform: translateX(100%);
+  background: var(--font-color-normal);
+}
+.header.light-mode .mode-button{
+  background: var(--dark-background);  
+}
 
 
 /********************************************** PRIMER BREAK****(TABLET) ****/

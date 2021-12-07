@@ -1,3 +1,9 @@
- body{
-    background: var(--dark-background);
- }
+.search-result{
+   background: var(--dark-background);
+   height: 300vh;
+}
+/*********************************************** ESTILOS DEL LIGHT-MODE */
+.search-result.light-mode{
+   background: var(--font-color-normal);
+   color: var(--dark-background);
+}

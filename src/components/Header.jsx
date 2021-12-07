@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import ModesContext from "../context/modesContext";
 
 export const Header = ({ off,currentComponent }) => {  
+  //context que controla el estado de los modos dark & light
+  const {setLightMode,lightMode} = useContext(ModesContext);
 
   return (
-    <header className="header">
+    <header className={lightMode ?"header light-mode" :"header"}>
       <section className="header-links">
         <Link className={currentComponent==="home" ?"active-component" :""} to="/">Home</Link>
         <Link className={currentComponent==="my-list" ?"active-component" :""} to="/my-list">My List</Link>
@@ -13,7 +16,7 @@ export const Header = ({ off,currentComponent }) => {
       {!off && (
         <section className="mode_button-section">
           <section className="mode-button">
-            <figure className=""></figure>
+            <figure onClick={()=>setLightMode(!lightMode)}></figure>
           </section>
         </section>
       )}

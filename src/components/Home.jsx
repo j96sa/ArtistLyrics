@@ -1,4 +1,4 @@
-import React, { useEffect,useState } from "react";
+import React, { useContext, useEffect,useState } from "react";
 import { Header } from "./Header";
 import "../assets/home.css";
 //imagenes para cambiar en el home
@@ -10,8 +10,11 @@ import imgMusic4 from "../assets/music4.png";
 import imgMusic5 from "../assets/music5.png";
 import imgMusic6 from "../assets/music6.png";
 import { useNavigate } from "react-router";
+import ModesContext from "../context/modesContext";
 
 export const Home = ({setCurrentComponent,currentComponent}) => {
+  //context que controla el estado de los modos dark & light
+  const {setLightMode} = useContext(ModesContext);
   //estado para validar si mostrar el contenido del modo Desktop;
   const [onDesktop, setOnDesktop] = useState(false);  
   //estados para modificar las imagenes del home  
@@ -49,7 +52,9 @@ export const Home = ({setCurrentComponent,currentComponent}) => {
     width > 1200 ?setOnDesktop(true) :setOnDesktop(false);
     //modificar el link
     setCurrentComponent("home");
-  }, [setCurrentComponent]);
+    //para desactivar el modo light
+    setLightMode(false);
+  }, [setCurrentComponent,setLightMode]);
 
 
   /* FUNCIONES CONTROLADORAS DEL FORM */
