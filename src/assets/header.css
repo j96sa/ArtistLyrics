@@ -10,12 +10,9 @@
   color: var(--font-color-normal);
   width: 50%;
   text-align: center;
-  position: relative;
-  /* border-bottom: 2px solid transparent; */
+  position: relative;  
 }
-/* .header-links a:first-child {
-  border-bottom: 2px solid #0af;
-} */
+
 .header button img {
   width: 100%;
 }

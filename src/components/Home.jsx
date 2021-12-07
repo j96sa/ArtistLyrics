@@ -9,6 +9,7 @@ import imgMusic3 from "../assets/music3.png";
 import imgMusic4 from "../assets/music4.png";
 import imgMusic5 from "../assets/music5.png";
 import imgMusic6 from "../assets/music6.png";
+import { useNavigate } from "react-router";
 
 export const Home = ({setCurrentComponent,currentComponent}) => {
   //estado para validar si mostrar el contenido del modo Desktop;
@@ -17,6 +18,10 @@ export const Home = ({setCurrentComponent,currentComponent}) => {
   const [index, setIndex] = useState(0);  
   //array de imagenes del Home
   const imgArr = [imgMusic0,imgMusic1,imgMusic2,imgMusic3,imgMusic4,imgMusic5,imgMusic6];    
+  //contenido del form para insertar en el la ruta del navegador para hacer las peticiones a la API
+  const navigate = useNavigate();
+  const [form, setForm] = useState({artist:"",song:""});
+
   
   /* FUNCION PARA CAMBIAR LAS IMAGENES DEL HOME */
   useEffect(() => {
@@ -47,6 +52,16 @@ export const Home = ({setCurrentComponent,currentComponent}) => {
   }, [setCurrentComponent]);
 
 
+  /* FUNCIONES CONTROLADORAS DEL FORM */
+  const handleChange = (e)=>{
+    setForm({...form,[e.target.name]:e.target.value})
+  };
+  const handleSubmit = (e)=>{
+    e.preventDefault();
+    navigate(`/searchresult/${form.artist}/${form.song}`);
+    setForm({artist:"",song:""});
+  };
+  
 
   return (
     <div className="home">      
@@ -63,9 +78,9 @@ export const Home = ({setCurrentComponent,currentComponent}) => {
             </p>            
           </article>
 
-          <form className="home-form">        
-            <input type="text" name="artist" placeholder="artist...?" />
-            <input type="text" name="song" placeholder="song...?" />          
+          <form onSubmit={handleSubmit} className="home-form">
+            <input value={form.artist} onChange={handleChange} type="text" name="artist" placeholder="artist...?" />
+            <input value={form.song} onChange={handleChange} type="text" name="song" placeholder="song...?" />          
             <input type="submit" value="search"/>
           </form>          
         </section>
