@@ -1,0 +1,117 @@
+/*************************************************** HEADER **/
+.header-links {
+  padding-top: 5px;
+  display: flex;  
+  justify-content: space-around;
+}
+.header-links a {
+  text-decoration: none;
+  font-size: var(--font-size-subtitle);
+  color: var(--font-color-normal);
+  width: 50%;
+  text-align: center;
+  position: relative;
+  /* border-bottom: 2px solid transparent; */
+}
+/* .header-links a:first-child {
+  border-bottom: 2px solid #0af;
+} */
+.header button img {
+  width: 100%;
+}
+.header-links a.active-component{
+  color: var(--color-orange);
+}
+.header-links a.active-component::after{
+  content: "";
+  position: absolute;
+  width:100%;
+  height: 2px;
+  background: var(--color-orange);
+  bottom: 0;
+  left: 0;    
+  transform: scale(1);
+}
+
+/********************************************** BUTTON MODE-BUTTON **/
+.mode_button-section {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 10px;
+}
+.mode-button {
+  margin-top: 10px;
+  background: #fff;
+  width: 60px;
+  height: 30px;
+  border-radius: 20px;
+  padding: 2px;
+}
+.mode-button figure {
+  margin: 0;
+  height: 95%;
+  width: 50%;
+  border-radius: 100%;
+  background: #000;
+  transition: 0.5s;
+}
+.mode-button figure.light-mode {
+  transform: translateX(100%);
+}
+
+
+
+/********************************************** PRIMER BREAK****(TABLET) ****/
+@media screen and (min-width:550px) {  
+  .header-links{
+    max-width:973px;
+    margin: auto;
+  }
+}
+
+
+/********************************************** SEGUNDO BREAK****(PC) ****/
+@media screen and (min-width:1200px) {
+  .header{
+    display: flex;
+    justify-content: flex-start;
+  }
+  .header-links{
+    max-width: none;
+    margin: 0;
+    width: 40%;
+    padding-left: 40px;
+    padding-top: 20px;
+    /* transition: .5s ease-in; */
+  }
+  .header-links a{
+    position: relative;
+    transition: .4s;
+  }
+  .header-links a:hover{
+    color: var(--color-orange);
+    transform: scale(.9);
+  }
+
+  .header-links a::after{
+    content: "";
+    position: absolute;
+    width:100%;
+    height: 2px;
+    background: var(--color-orange);
+    bottom: 0;
+    left: 0;
+    transition: .5s;    
+    transform: scale(0);
+  }
+  .header-links a:hover::after{
+    transform: scale(1);
+  }  
+}
+
+
+
+
+
+
+

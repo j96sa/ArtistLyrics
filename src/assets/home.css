@@ -1,0 +1,125 @@
+.home{    
+    background-image: url("https://i.pinimg.com/474x/22/05/c1/2205c1e11254a5de17bfa4630ba55e55.jpg");
+    /* background-image: url("https://i.pinimg.com/236x/a2/5d/af/a25daface186cce5bbaf7c6d2a36832c--man-cave-hobby.jpg"); */    
+    min-height: 100vh;    
+}
+/* *********************************************  HOME INTRO */
+.home-intro{
+    width: 90%;
+    margin: auto;
+    margin-top: 70px;
+    text-align: center;
+    font-size: var(--font-size-normal);
+    font-weight: 700;
+    color: var(--font-color-normal);
+    -webkit-text-stroke: 1px #000;    
+}
+.home-intro p{
+    line-height: 1.5;
+}
+
+/* *******************************************  HOME-FORM*/
+.home-form{
+    display: flex;
+    flex-direction: column;
+    width: 85%;    
+    margin: auto;    
+    margin-top: 150px;
+    max-width:360px;
+    padding-bottom: 20px;
+}
+.home-form input{
+    font-size: var(--font-size-small);
+    margin-top: 6px;
+    outline: none;
+    border: 1px solid #0006;      
+    background: var(--font-color-normal);
+    height: 25px;
+}
+.home-form input[type="text"]{
+    border-radius:10px;    
+}
+.home-form input[type="submit"]{
+    width: 35%;
+    margin: auto;
+    cursor: pointer;
+    margin-top: 12px;
+    border-radius: 15px;
+    font-size: var(--font-size-small);
+    background: var(--color-orange);
+}
+.home-form input[type="submit"]:hover{
+    background: #f90;
+    color: var(--font-color-normal);
+}
+
+
+
+/** *************************************  PRIMER BREAK****(TABLET)  */
+@media screen and (min-width:550px) {
+    .home-intro{
+        font-size: var(--font-size-subtitle);
+        margin-bottom: 150px;
+        max-width: 627px;
+    }
+    .home-form input{
+        height: 30px;
+    }    
+}
+
+
+
+/** *******************************************SEGUNDO BREAK****(PC) **/
+@media screen and (min-width:1200px){
+    .home{        
+        background-image: url("https://www.santabanta.com/images/wallpapers/babes/black-guitar-musical-instrument-wallpaper-1024-768-0.jpg");
+        background-size: cover;
+        background-position: center; 
+        overflow: hidden;       
+    }
+    .home-content{
+        display: flex;        
+        justify-content: space-around;
+        align-items: center;
+    }    
+    .home-intro{
+        margin-top: 150px;
+        font-size: var(--font-size-title);
+    }
+
+    .home-img{
+        align-self: center;        
+        /* overflow: hidden; */
+    }
+    .home-img img{        
+        width: 450px;        
+        animation: imgTraslation 5s infinite;        
+    }
+
+    .home-form input{
+        margin-top: 16px;
+    } 
+
+    @keyframes imgTraslation {
+        0%{
+            transform: translatey(-200%);            
+        }
+        20%{
+            transform: translateY(10%);            
+        }
+        40%{
+            transform: translateY(-10%);            
+        }
+        60%{
+            transform: translateY(10%);            
+        }
+        80%{
+            transform: translateY(-10%);            
+        }
+        100%{            
+            transform: translateY(300%);
+        }
+    }
+}
+
+
