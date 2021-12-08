@@ -1,6 +1,6 @@
 .render_data_component{
     text-align: center;
-    padding-bottom: 15px;
+    /* padding-bottom: 15px; */
 }
 .render_data_component h2.subtitle{        
     color: var(--color-render-title);    
@@ -12,10 +12,6 @@
     margin-top: 40px;
 }
 
-
-.data-artist{
-
-}
 .data-artist > img{        
     width: 98%;        
 }
@@ -51,12 +47,4 @@
 .data-song > p{
     margin: auto;    
     width: 98%;
-}
-
-
-/* PRIMER BREAK -- 750PX */
-@media screen and (min-width:499px) {
-    .data-artist > img{
-        /* width: ; */
-    }
 }

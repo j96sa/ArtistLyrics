@@ -1,11 +1,14 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router';
 import "../assets/render-data-component.css";
+import scrollButton from "../assets/scroll-top.png";
 import add from "../assets/heart.png"
 import added from "../assets/heart-full.png";
 
 
 export const RenderDataComponent = ({data}) => {
+    const [showScrollButton, setShowScrollButton] = useState(false);
+
     const redirect = (url)=>{
       window.location.href = `https://${url}`;
     };
@@ -16,7 +19,16 @@ export const RenderDataComponent = ({data}) => {
     //para obtener el nombre de la cancion
     let {song} = useParams();
 
-    console.log(data);
+    /* EFFECT PARA MOSTRAR EL SCROLL-TOP BUTTON */
+    useEffect(() => {
+        const showScrollTopButton = ()=>{
+            let {scrollTop} = document.documentElement;
+            scrollTop > 1100 ?setShowScrollButton(true) :setShowScrollButton(false); 
+        };
+        window.addEventListener("scroll",showScrollTopButton);
+        return()=>window.removeEventListener("scroll",showScrollTopButton);
+    });
+
     return (
         <section className="render_data_component">
             <img src={add} alt="fav" />
@@ -46,6 +58,7 @@ export const RenderDataComponent = ({data}) => {
                 <h2 className="subtitle">{song}</h2>
                 <p>{lyric}</p>                
             </article>
+            {showScrollButton && <img onClick={()=>window.scrollTo({top:0,behavior:'smooth'})} className="scroll-button" src={scrollButton} alt="scroll-button" />}
         </section>
     )
 }

@@ -3,6 +3,7 @@ import { HashRouter, Route, Routes } from "react-router-dom";
 import { Home } from "../components/Home";
 import { MyLIst } from "../components/MyLIst";
 import { SearchResult } from "../components/SearchResult";
+import { ContextResizeProvider } from "../context/ContextResize";
 import { ModesContextProvider } from "../context/modesContext";
 
 export const Router = () => {
@@ -12,11 +13,13 @@ export const Router = () => {
   return (
     <HashRouter>
       <ModesContextProvider>
+      <ContextResizeProvider>
         <Routes>
           <Route exact path="/" element={<Home setCurrentComponent={setCurrentComponent} currentComponent={currentComponent}/>} />
           <Route exact path="/my-list" element={<MyLIst setCurrentComponent={setCurrentComponent} currentComponent={currentComponent}/>} />
           <Route exact path="/searchresult/:artist/:song" element={<SearchResult/>} />
         </Routes>
+      </ContextResizeProvider>
       </ModesContextProvider>
     </HashRouter>
   );

@@ -11,12 +11,13 @@ import imgMusic5 from "../assets/music5.png";
 import imgMusic6 from "../assets/music6.png";
 import { useNavigate } from "react-router";
 import ModesContext from "../context/modesContext";
+import ContextResize from "../context/ContextResize";
 
 export const Home = ({setCurrentComponent,currentComponent}) => {
   //context que controla el estado de los modos dark & light
   const {setLightMode} = useContext(ModesContext);
   //estado para validar si mostrar el contenido del modo Desktop;
-  const [onDesktop, setOnDesktop] = useState(false);  
+  const {width,resize,onDesktop} = useContext(ContextResize);
   //estados para modificar las imagenes del home  
   const [index, setIndex] = useState(0);  
   //array de imagenes del Home
@@ -39,23 +40,17 @@ export const Home = ({setCurrentComponent,currentComponent}) => {
 
   /* FUNCION PARA MODIFICAR EL CONTENIDO DEL HOME EN DEPENDENCIA DEL MODO EN EL QUE SE ENCUENTRE */
   useEffect(() => {
-    const responsiveDesignSize = ()=>{
-      let {clientWidth}= document.documentElement;
-      clientWidth > 1200 ?setOnDesktop(true) :setOnDesktop(false);
-    };
-    window.addEventListener("resize",responsiveDesignSize);
-    return ()=>window.removeEventListener("resize",responsiveDesignSize);
+    window.addEventListener("resize",resize);
+    return()=>window.removeEventListener("resize",resize); 
   });
-  /* FUNCION PARA MODIFICAR EL CONTENIDO DEL HOME EN DEPENDENCIA DEL MODO EN EL QUE SE ENCUENTRE */
   useEffect(() => {
-    let width = document.documentElement.clientWidth;
-    width > 1200 ?setOnDesktop(true) :setOnDesktop(false);
+    width();
     //modificar el link
     setCurrentComponent("home");
     //para desactivar el modo light
     setLightMode(false);
-  }, [setCurrentComponent,setLightMode]);
-
+  },[width,setCurrentComponent,setLightMode]);
+  
 
   /* FUNCIONES CONTROLADORAS DEL FORM */
   const handleChange = (e)=>{
@@ -66,6 +61,7 @@ export const Home = ({setCurrentComponent,currentComponent}) => {
     navigate(`/searchresult/${form.artist}/${form.song}`);
     setForm({artist:"",song:""});
   };
+  
   
 
   return (

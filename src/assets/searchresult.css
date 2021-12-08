@@ -1,10 +1,14 @@
 .search-result{
-   background: var(--dark-background);   
+   background: var(--dark-background);  
+   padding-bottom: 15px; 
 }
 /*********************************************** ESTILOS DEL LIGHT-MODE */
 .search-result.light-mode{
    background: var(--font-color-normal);
    color: var(--dark-background);
+}
+.search-result.light-mode .socials-links button{
+   color: var(--color-pink);
 }
 /*********************************************** ESTILOS DEL LOADER-SECTION */
 .loader-section{
@@ -14,4 +18,11 @@
 }
 .loader-section img{
    width: 100px;   
+}
+
+/* ****************************************BOTON DEL SCROLL TOP */
+.scroll-button{
+   position: fixed;
+   bottom: 25px;
+   right: 25px;
 }

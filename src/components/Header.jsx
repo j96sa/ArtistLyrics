@@ -5,6 +5,11 @@ import ModesContext from "../context/modesContext";
 export const Header = ({ off,currentComponent }) => {  
   //context que controla el estado de los modos dark & light
   const {setLightMode,lightMode} = useContext(ModesContext);
+  
+  const themeHandler = ()=>{
+    localStorage.setItem("artistlyricstheme",JSON.stringify(!lightMode));
+    setLightMode(!lightMode)
+  };
 
   return (
     <header className={lightMode ?"header light-mode" :"header"}>
@@ -16,7 +21,7 @@ export const Header = ({ off,currentComponent }) => {
       {!off && (
         <section className="mode_button-section">
           <section className="mode-button">
-            <figure onClick={()=>setLightMode(!lightMode)}></figure>
+            <figure onClick={themeHandler}></figure>
           </section>
         </section>
       )}

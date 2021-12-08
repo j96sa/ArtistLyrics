@@ -1,0 +1,85 @@
+.render_data_component-desktop{
+    text-align: center;
+    padding-top: 50px;
+}
+.render_data_component-desktop > img{
+    width: 99%;
+}
+
+.data_desktop-header{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 30px;
+}
+.data_desktop-header > h2{
+    font-size: var(--font-size-title);
+    color: var(--color-render-title);
+}
+.data_desktop-header > img{
+    width: 53px;    
+    align-self: center;
+    cursor: pointer;
+}
+
+.data_desktop-artist{
+    position: relative;
+}
+.data_desktop-artist img{
+    position: absolute;
+    width: 30%;     
+    transition: .5s; 
+}
+.data_desktop-artist img:first-child{
+    left: 30px;
+    top: 50px;
+}
+.data_desktop-artist img:nth-child(2){
+    left: 400px;
+    top: 300px;
+}
+
+
+.data_desktop-details{
+    position: absolute;
+    top: 700px;
+    left: 25%; 
+    font-size: var(--font-size-normal);
+}
+.data_desktop-details p span{
+    color: var(--color-render-title);
+}
+
+
+.data_desktop-lyric{    
+    display: flex;
+    justify-content: flex-end;
+    text-align: center;
+    padding-right: 30px;
+}
+.data_desktop-lyric article{
+    width: 30%;
+}
+.data_desktop-lyric article > h2{
+    color: var(--color-render-title);
+    font-size: var(--font-size-title);
+    text-transform: capitalize;
+}
+
+
+.data_desktop-biography h2{
+    margin: 220px 0 10px 0;
+    font-size: var(--font-size-title);
+    color: var(--color-render-title);
+}
+.data_desktop-biography p{
+    font-size: var(--font-size-normal);
+    width: 97%;
+    margin: auto;
+}
+
+
+/***************************************** ESTILOS DE LAS IMAGENES CON EL THEME LIGHT */
+.search-result.light-mode .data_desktop-artist img:hover{
+    transform: scale(1.1);
+    box-shadow: 11px -12px 20px 4px rgba(0,0,0,0.71);
+}
