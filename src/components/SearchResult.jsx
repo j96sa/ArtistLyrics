@@ -7,6 +7,7 @@ import { RenderDataComponent } from './RenderDataComponent';
 import loader from "../assets/tail-spin.svg";
 import ContextResize from '../context/ContextResize';
 import { RenderDataComponentDesktop } from './RenderDataComponentDesktop';
+import { ErrorResult } from './ErrorResult';
 
 
 export const SearchResult = () => {
@@ -39,20 +40,26 @@ export const SearchResult = () => {
         let audioDB = fetch(`https://theaudiodb.com/api/v1/json/2/search.php?s=${artist}`).then(res=>res.json());
         let lyricDB = fetch(`https://api.lyrics.ovh/v1/${artist}/${song}`).then(res=>res.json());
         const getData = async()=>{
-            let res = await Promise.all([audioDB,lyricDB]);            
-            let art = res[0].artists[0];
-            let lyric = res[1].lyrics;
-            let id = art.idArtist+(artist+song).toLowerCase();            
-            setApiResponse({id,art,lyric});            
+            let res = await Promise.all([audioDB,lyricDB]);                       
+            let art = res[0].artists ?res[0].artists[0] :res[0].artists;
+            let lyric = res[1].lyrics ?res[1].lyrics :null ;
+            let id = (art && lyric) ?art.idArtist+(artist+song).toLowerCase() :null
+            setApiResponse({id,art,lyric});
         };
         getData();
     }, [artist,song]);
     
     return (
-        <div className={lightMode ?"search-result light-mode" :"search-result"}>
+        /* ?(onDesktop && onDesktop. ?<RenderDataComponentDesktop data={apiResponse}/> :<RenderDataComponent data={apiResponse}/>) */
+        <div className={lightMode ?"search-result light-mode" :"search-result"}>            
             <Header/>            
             {apiResponse             
-            ?(onDesktop ?<RenderDataComponentDesktop data={apiResponse}/> :<RenderDataComponent data={apiResponse}/>)
+            ?(
+                (apiResponse.id) 
+                ?(onDesktop ?<RenderDataComponentDesktop data={apiResponse}/> :<RenderDataComponent data={apiResponse}/>)
+                :<ErrorResult/>
+            )
+            
             :(
                 <section className="loader-section">
                     <img src={loader} alt="loader"/>

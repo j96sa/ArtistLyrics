@@ -80,8 +80,8 @@ export const Home = ({setCurrentComponent,currentComponent}) => {
           </article>
 
           <form onSubmit={handleSubmit} className="home-form">
-            <input value={form.artist} onChange={handleChange} type="text" name="artist" placeholder="artist...?" />
-            <input value={form.song} onChange={handleChange} type="text" name="song" placeholder="song...?" />          
+            <input required value={form.artist} onChange={handleChange} type="text" name="artist" placeholder="artist...?" />
+            <input required value={form.song} onChange={handleChange} type="text" name="song" placeholder="song...?" />          
             <input type="submit" value="search"/>
           </form>          
         </section>

@@ -1,6 +1,5 @@
 .render_data_component{
-    text-align: center;
-    /* padding-bottom: 15px; */
+    text-align: center;    
 }
 .render_data_component h2.subtitle{        
     color: var(--color-render-title);    

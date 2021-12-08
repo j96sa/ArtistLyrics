@@ -26,3 +26,26 @@
    bottom: 25px;
    right: 25px;
 }
+
+
+/* ESTILOS DE LA SECCION DE ERROR */
+.error-result{   
+   height: calc(100vh - 73px);   
+   text-align: center;
+   display: flex;
+   flex-direction: column;   
+   align-items: center;
+   justify-content: center;
+}
+.error-result p{      
+   width: 90%;
+   font-size: var(--font-size-title);
+}
+.error-result span{
+   color: var(--color-render-title);
+   text-transform: capitalize;
+}
+.error-result img{
+   width: 70%;
+   max-width: 400px;   
+}
