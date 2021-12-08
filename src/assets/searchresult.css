@@ -1,9 +1,17 @@
 .search-result{
-   background: var(--dark-background);
-   height: 300vh;
+   background: var(--dark-background);   
 }
 /*********************************************** ESTILOS DEL LIGHT-MODE */
 .search-result.light-mode{
    background: var(--font-color-normal);
    color: var(--dark-background);
+}
+/*********************************************** ESTILOS DEL LOADER-SECTION */
+.loader-section{
+   height: calc(100vh - 87px);
+   text-align: center;
+   padding-top: 150px;
+}
+.loader-section img{
+   width: 100px;   
 }

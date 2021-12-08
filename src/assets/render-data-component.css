@@ -1,0 +1,62 @@
+.render_data_component{
+    text-align: center;
+    padding-bottom: 15px;
+}
+.render_data_component h2.subtitle{        
+    color: var(--color-render-title);    
+    margin-bottom: 8px;
+}
+.render_data_component > img{
+    width: 15%;
+    max-width: 53px;
+    margin-top: 40px;
+}
+
+
+.data-artist{
+
+}
+.data-artist > img{        
+    width: 98%;        
+}
+.data-artist > button{
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: var(--color-aqua);
+}
+.data_artist-details > p span{
+    color: var(--color-render-title);
+}
+.details-socials > p{
+    color: var(--color-render-title);
+    margin-bottom: 5px;
+}
+.socials-links{
+    display: flex;
+    justify-content: space-around;
+}
+.socials-links button{
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--color-aqua);
+    cursor: pointer;
+}
+
+.data-song > h2{
+    text-transform: capitalize;    
+}
+.data-song > p{
+    margin: auto;    
+    width: 98%;
+}
+
+
+/* PRIMER BREAK -- 750PX */
+@media screen and (min-width:499px) {
+    .data-artist > img{
+        /* width: ; */
+    }
+}

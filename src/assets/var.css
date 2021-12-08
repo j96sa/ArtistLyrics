@@ -1,8 +1,8 @@
 :root {
+  --color-aqua:turquoise;
   --dark-background:#120425;
-  --color-green-blue: #23be87;
-  --color-orange: #f80;
-  --color-blue: #0af;
+  --color-orange: #FB7508;
+  --color-render-title:#F24F16;  
   --font-color-normal: #fff;
   --font-size-title:1.8rem;    
   --font-size-subtitle: 1.5rem;

@@ -57,6 +57,9 @@
 .header.light-mode .header-links a{
   color: var(--dark-background);
 }
+.header.light-mode .header-links a:hover{
+  color: var(--color-orange);
+}
 .header.light-mode .mode-button figure{
   transform: translateX(100%);
   background: var(--font-color-normal);
@@ -79,7 +82,15 @@
 @media screen and (min-width:1200px) {
   .header{
     display: flex;
-    justify-content: flex-start;
+    /* justify-content: flex-start; */
+    justify-content: space-between;
+    padding-right: 20px;
+  }
+  .mode_button-section{
+    align-self: flex-end;
+  }
+  .mode-button figure{
+    cursor: pointer;
   }
   .header-links{
     max-width: none;
