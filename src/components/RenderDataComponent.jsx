@@ -5,6 +5,7 @@ import scrollButton from "../assets/scroll-top.png";
 import add from "../assets/heart.png"
 import added from "../assets/heart-full.png";
 import ContextFavorite from '../context/ContextFavorite';
+import { HoverMessage } from './HoverMessage';
 
 
 export const RenderDataComponent = ({data}) => {
@@ -17,7 +18,25 @@ export const RenderDataComponent = ({data}) => {
     let {song} = useParams();
     //estado para controlar si el resultado de busqueda esta ya en las favoritas 
     const {saved,setSaved,setData} = useContext(ContextFavorite);
+    //estado par ael mensaje al hacer hover sobre el boton fav
+    const [message, setMessage] = useState(false);
 
+    /* VARIAS FUNCIONALIDADES */
+    const handleClickImg = ()=>{
+        //para enviar los datos a guardar en el store al CONTEXT 
+        setData(data);
+
+        //funcion para mostrar el mensaje en el boton de añadir a la lista de favoritos
+        if(saved){
+            setMessage("removed from my-list");
+        }else{
+            setMessage("added to my-list");
+        };
+
+        setTimeout(() => {
+            setMessage(false);
+        }, 2000);
+    };
     
     /* EFFECT PARA SABER SI EL ELEMENTO ESTA EN MY-LIST */
     useEffect(() => {        
@@ -42,7 +61,8 @@ export const RenderDataComponent = ({data}) => {
 
     return (
         <section className="render_data_component">
-            <img onClick={()=>setData(data)} src={saved ?added :add} alt="fav" />
+            {message && <HoverMessage message={message} classname={"message-mobile"}/>}
+            <img onClick={handleClickImg} src={saved ?added :add} alt="fav" />
             <article className="data-artist">
                 <h2 className="subtitle">{art.strArtist}</h2>
                 <img src={art.strArtistFanart ?art.strArtistFanart :art.strArtistFanart2} alt={art.strArtist} />

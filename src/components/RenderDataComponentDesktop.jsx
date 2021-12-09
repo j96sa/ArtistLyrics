@@ -1,9 +1,10 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import "../assets/render-data-component-desktop.css";
 import add from "../assets/heart.png"
 import added from "../assets/heart-full.png";
 import ContextFavorite from '../context/ContextFavorite';
+import { HoverMessage } from './HoverMessage';
 
 export const RenderDataComponentDesktop = ({data}) => {
     const {id,art,lyric} = data;
@@ -11,11 +12,13 @@ export const RenderDataComponentDesktop = ({data}) => {
     const {saved,setSaved,setData} = useContext(ContextFavorite);
     //para obtener el nombre de la cancion
     let {song} = useParams();
+    //estado par ael mensaje al hacer hover sobre el boton fav
+    const [message, setMessage] = useState(false);
 
     
     /* EFFECT PARA SABER SI EL ELEMENTO ESTA EN MY-LIST */
     useEffect(() => {        
-        JSON.parse(localStorage.getItem("favorite-list")).find(e=>e.id===id) && setSaved(true);
+        JSON.parse(localStorage.getItem("favorite-list")).find(e=>e.id===id) && setSaved(true);              
     }, [data]);
 
     // funcion para link externos de las paginas de los artistas
@@ -23,12 +26,23 @@ export const RenderDataComponentDesktop = ({data}) => {
       window.location.href = `https://${url}`;
     };
 
+    //funcion para mostrar el mensaje en el boton de añadir a la lista de favoritos
+    const handleMosueEnter = ()=>{
+        if(saved){
+            setMessage("remove from my-list");
+        }else{
+            setMessage("add to my-list");
+        };
+    };    
+
+    
 
     return (
         <div className="render_data_component-desktop">
-            <section className="data_desktop-header">
+            <section className={saved ?"data_desktop-header" :"data_desktop-header"}>
                 <h2>{art.strArtist}</h2>
-                <img onClick={()=>setData(data)} src={saved ?added :add} alt="fav" />
+                <img onMouseLeave={()=>setMessage(false)} onMouseEnter={handleMosueEnter} onClick={()=>setData(data)} src={saved ?added :add} alt="fav" />
+                {message && <HoverMessage message={message} classname={"hover-message"}/>}
             </section>
             {art.strArtistBanner && <img src={art.strArtistBanner} alt={art.strArtist} />}
             <section className="data_desktop-content">

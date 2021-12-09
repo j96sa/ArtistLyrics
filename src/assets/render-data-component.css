@@ -1,5 +1,6 @@
 .render_data_component{
     text-align: center;    
+    position: relative;
 }
 .render_data_component h2.subtitle{        
     color: var(--color-render-title);    
@@ -11,6 +12,26 @@
     margin-top: 40px;
 }
 
+
+/* message hover */
+.message-mobile{
+    position: absolute;
+    top: 7px;
+    left: 0;
+    right: 0;
+    background: #fff2;
+    padding: 2px;
+}
+.message-mobile p{    
+    margin: 0;
+    font-size: var(--font-size-small);
+}
+/* light-theme */
+.search-result.light-mode .message-mobile{
+    background: #12042566;    
+}
+
+
 .data-artist > img{        
     width: 98%;        
 }
@@ -21,6 +42,8 @@
     cursor: pointer;
     color: var(--color-aqua);
 }
+
+
 .data_artist-details > p span{
     color: var(--color-render-title);
 }
@@ -39,6 +62,7 @@
     color: var(--color-aqua);
     cursor: pointer;
 }
+
 
 .data-song > h2{
     text-transform: capitalize;    
