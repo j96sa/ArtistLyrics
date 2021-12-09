@@ -1,23 +1,33 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router';
 import "../assets/render-data-component.css";
 import scrollButton from "../assets/scroll-top.png";
 import add from "../assets/heart.png"
 import added from "../assets/heart-full.png";
+import ContextFavorite from '../context/ContextFavorite';
 
 
 export const RenderDataComponent = ({data}) => {
-    const [showScrollButton, setShowScrollButton] = useState(false);
-
-    const redirect = (url)=>{
-      window.location.href = `https://${url}`;
-    };
-
     const {id,art,lyric} = data;
+    // estado para controlar el boton de Scroll-Top
+    const [showScrollButton, setShowScrollButton] = useState(false);
     //constante qeu controla si se mostranran los detalles del artista o no en el modo mobile
     const [showDetails, setShowDetails] = useState(false);
     //para obtener el nombre de la cancion
     let {song} = useParams();
+    //estado para controlar si el resultado de busqueda esta ya en las favoritas 
+    const {saved,setSaved,setData} = useContext(ContextFavorite);
+
+    
+    /* EFFECT PARA SABER SI EL ELEMENTO ESTA EN MY-LIST */
+    useEffect(() => {        
+        JSON.parse(localStorage.getItem("favorite-list")).find(e=>e.id===id) && setSaved(true);
+    }, [data]);
+
+    // funcion para link externos de las paginas de los artistas
+    const redirect = (url)=>{
+      window.location.href = `https://${url}`;
+    };
 
     /* EFFECT PARA MOSTRAR EL SCROLL-TOP BUTTON */
     useEffect(() => {
@@ -29,9 +39,10 @@ export const RenderDataComponent = ({data}) => {
         return()=>window.removeEventListener("scroll",showScrollTopButton);
     });
 
+
     return (
         <section className="render_data_component">
-            <img src={add} alt="fav" />
+            <img onClick={()=>setData(data)} src={saved ?added :add} alt="fav" />
             <article className="data-artist">
                 <h2 className="subtitle">{art.strArtist}</h2>
                 <img src={art.strArtistFanart ?art.strArtistFanart :art.strArtistFanart2} alt={art.strArtist} />
