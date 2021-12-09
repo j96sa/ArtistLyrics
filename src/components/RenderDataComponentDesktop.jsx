@@ -14,7 +14,6 @@ export const RenderDataComponentDesktop = ({data}) => {
     //para obtener el nombre de la cancion
     let {song} = useParams();
 
-    console.log(data);
     return (
         <div className="render_data_component-desktop">
             <section className="data_desktop-header">
