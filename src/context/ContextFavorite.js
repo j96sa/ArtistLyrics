@@ -30,7 +30,7 @@ const ContextFavoriteProvider = ({children})=>{
         setData(null);
     }, [list]);
     
-    const value = {saved,setSaved,setData};
+    const value = {saved,setSaved,setData,list,setList};
 
     return <ContextFavorite.Provider value={value}>{children}</ContextFavorite.Provider>
 };

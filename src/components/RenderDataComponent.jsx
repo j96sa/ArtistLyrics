@@ -24,7 +24,7 @@ export const RenderDataComponent = ({data}) => {
     /* VARIAS FUNCIONALIDADES */
     const handleClickImg = ()=>{
         //para enviar los datos a guardar en el store al CONTEXT 
-        setData(data);
+        setData({...data,song});
 
         //funcion para mostrar el mensaje en el boton de añadir a la lista de favoritos
         if(saved){
@@ -39,8 +39,8 @@ export const RenderDataComponent = ({data}) => {
     };
     
     /* EFFECT PARA SABER SI EL ELEMENTO ESTA EN MY-LIST */
-    useEffect(() => {        
-        JSON.parse(localStorage.getItem("favorite-list")).find(e=>e.id===id) && setSaved(true);
+    useEffect(() => {                  
+        localStorage.getItem("favorite-list") && JSON.parse(localStorage.getItem("favorite-list")).find(e=>e.id===id) ?setSaved(true) :setSaved(false);
     }, [data]);
 
     // funcion para link externos de las paginas de los artistas
@@ -60,7 +60,7 @@ export const RenderDataComponent = ({data}) => {
 
 
     return (
-        <section className="render_data_component">
+        <section className="render_data_component">            
             {message && <HoverMessage message={message} classname={"message-mobile"}/>}
             <img onClick={handleClickImg} src={saved ?added :add} alt="fav" />
             <article className="data-artist">

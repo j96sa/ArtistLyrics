@@ -8,17 +8,17 @@ import { HoverMessage } from './HoverMessage';
 
 export const RenderDataComponentDesktop = ({data}) => {
     const {id,art,lyric} = data;
-    //estado para controlar si el resultado de busqueda esta ya en las favoritas 
-    const {saved,setSaved,setData} = useContext(ContextFavorite);
     //para obtener el nombre de la cancion
     let {song} = useParams();
+    //estado para controlar si el resultado de busqueda esta ya en las favoritas 
+    const {saved,setSaved,setData} = useContext(ContextFavorite);
     //estado par ael mensaje al hacer hover sobre el boton fav
     const [message, setMessage] = useState(false);
 
     
     /* EFFECT PARA SABER SI EL ELEMENTO ESTA EN MY-LIST */
-    useEffect(() => {        
-        JSON.parse(localStorage.getItem("favorite-list")).find(e=>e.id===id) && setSaved(true);              
+    useEffect(() => {                
+        localStorage.getItem("favorite-list") && JSON.parse(localStorage.getItem("favorite-list")).find(e=>e.id===id) ?setSaved(true) :setSaved(false);
     }, [data]);
 
     // funcion para link externos de las paginas de los artistas
@@ -41,7 +41,7 @@ export const RenderDataComponentDesktop = ({data}) => {
         <div className="render_data_component-desktop">
             <section className={saved ?"data_desktop-header" :"data_desktop-header"}>
                 <h2>{art.strArtist}</h2>
-                <img onMouseLeave={()=>setMessage(false)} onMouseEnter={handleMosueEnter} onClick={()=>setData(data)} src={saved ?added :add} alt="fav" />
+                <img onMouseLeave={()=>setMessage(false)} onMouseEnter={handleMosueEnter} onClick={()=>setData({...data,song})} src={saved ?added :add} alt="fav" />
                 {message && <HoverMessage message={message} classname={"hover-message"}/>}
             </section>
             {art.strArtistBanner && <img src={art.strArtistBanner} alt={art.strArtist} />}

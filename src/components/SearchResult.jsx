@@ -8,7 +8,6 @@ import loader from "../assets/tail-spin.svg";
 import ContextResize from '../context/ContextResize';
 import { RenderDataComponentDesktop } from './RenderDataComponentDesktop';
 import { ErrorResult } from './ErrorResult';
-import { ContextFavoriteProvider } from '../context/ContextFavorite';
 
 
 export const SearchResult = () => {
@@ -53,8 +52,7 @@ export const SearchResult = () => {
     return (
         /* ?(onDesktop && onDesktop. ?<RenderDataComponentDesktop data={apiResponse}/> :<RenderDataComponent data={apiResponse}/>) */
         <div className={lightMode ?"search-result light-mode" :"search-result"}>            
-            <Header/>            
-            <ContextFavoriteProvider>
+            <Header/>                        
             {apiResponse             
             ?(
                 (apiResponse.id) 
@@ -66,8 +64,7 @@ export const SearchResult = () => {
                 <section className="loader-section">
                     <img src={loader} alt="loader"/>
                 </section>
-            )}
-            </ContextFavoriteProvider>
+            )}            
         </div>
     )
 }

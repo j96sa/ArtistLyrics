@@ -3,6 +3,7 @@ import { HashRouter, Route, Routes } from "react-router-dom";
 import { Home } from "../components/Home";
 import { MyLIst } from "../components/MyLIst";
 import { SearchResult } from "../components/SearchResult";
+import { ContextFavoriteProvider } from "../context/ContextFavorite";
 import { ContextResizeProvider } from "../context/ContextResize";
 import { ModesContextProvider } from "../context/modesContext";
 
@@ -12,6 +13,7 @@ export const Router = () => {
 
   return (
     <HashRouter>
+      <ContextFavoriteProvider>
       <ModesContextProvider>
       <ContextResizeProvider>
         <Routes>
@@ -21,6 +23,7 @@ export const Router = () => {
         </Routes>
       </ContextResizeProvider>
       </ModesContextProvider>
+      </ContextFavoriteProvider>
     </HashRouter>
   );
 };

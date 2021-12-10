@@ -1,0 +1,21 @@
+.card{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* background: #fff2; */    
+    width: 93%;
+    margin: auto;
+    padding: 0 5px;
+}
+.card article{
+    text-align: center;    
+    color: var(--color-render-title);
+}
+.card article *{
+    margin: 10px;
+    text-transform: capitalize;
+}
+
+.card img{
+    width: 40px;    
+}

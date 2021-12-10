@@ -1,0 +1,65 @@
+.my-list{
+    background: var(--dark-background);
+    padding-bottom: 15px;
+    min-height: 100vh;
+}
+
+
+
+.list-cards{
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(290px, 1fr));
+    row-gap: 22px;
+}
+.card{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;    
+    background: linear-gradient(to right, #ee9ca733, #ffdde133);
+    width: 85%;
+    max-width: 300px;
+    margin: auto;
+    padding: 0 15px;
+    transition: .1s ease-in;
+    cursor: pointer;    
+}
+/****************************************************************** EFFECTO HOVER */
+.card:hover{
+    transform:translate(-2%,-2%);
+    box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.73);
+}
+
+
+
+.card article{
+    text-align: center;    
+    color: var(--color-render-title);
+}
+.card article *{
+    margin: 10px 0;
+    text-transform: capitalize;
+}
+
+.card img{
+    width: 40px;    
+}
+
+
+
+/* **************************************************************** LIHGHT - MODE */
+.my-list.light-mode{
+    background: var(--font-color-normal);
+    color: var(--dark-background);
+}
+.my-list.light-mode .card{
+    /* background-image: linear-gradient(to right, #6a11cbbb 0%, #2575fcbb 100%);  */
+    background: linear-gradient(to right, #000428db, #004e92bd); 
+    background: linear-gradient(to right, #ee9ca7, #ffdde1);  
+}
+.my-list.light-mode .card article{
+    color: var(--dark-background);
+}
+.my-list.light-mode .card:hover{    
+    box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.43);
+}
