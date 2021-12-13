@@ -5,7 +5,7 @@ import { HoverMessage } from './HoverMessage';
 
 export const FavoritCard = ({e}) => {
     const [message, setMessage] = useState(false);
-
+    console.log(e);
     const {id,art,song} = e;
     //context 
     const {setData} = useContext(ContextFavorite);
@@ -17,16 +17,7 @@ export const FavoritCard = ({e}) => {
                 <p>{song}</p>
             </article>
             {message && <HoverMessage message={message} classname={"remove_message"}/>}
-            <img onMouseLeave={()=>setMessage(false)} onMouseEnter={()=>setMessage("remove")} onClick={setData} src={added} alt="fav" />
-            {/* {e && (
-                <>
-                <article>
-                <p>{art.strArtist}</p>
-                <p>{song}</p>
-                </article>
-                <img onClick={()=>setData(e)} src={added} alt="fav" />
-                </>
-            )} */}            
+            <img onMouseLeave={()=>setMessage(false)} onMouseEnter={()=>setMessage("remove")} onClick={()=>setData(e)} src={added} alt="fav" />                        
         </div>
     )
 }
