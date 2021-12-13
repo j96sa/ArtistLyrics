@@ -22,7 +22,7 @@
     cursor: pointer;    
 }
 
-/* mensaje al hacer hover */
+/********************************************** mensaje al hacer hover */
 .hover-message{
     position: absolute;
     right: 85px;
@@ -34,7 +34,7 @@
     margin: 0;
     font-size: var(--font-size-small);
 }
-/* light-theme */
+/******************************************************** light-theme */
 .search-result.light-mode .hover-message{
     background: #12042566;    
 }

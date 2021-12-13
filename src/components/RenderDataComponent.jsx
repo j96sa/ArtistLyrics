@@ -60,7 +60,7 @@ export const RenderDataComponent = ({data}) => {
 
 
     return (
-        <section className="render_data_component">            
+        <section className="render_data_component">                  
             {message && <HoverMessage message={message} classname={"message-mobile"}/>}
             <img onClick={handleClickImg} src={saved ?added :add} alt="fav" />
             <article className="data-artist">

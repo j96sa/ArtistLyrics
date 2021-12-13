@@ -1,21 +1,24 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import added from "../assets/heart-full.png";
 import ContextFavorite from '../context/ContextFavorite';
+import { HoverMessage } from './HoverMessage';
 
 export const FavoritCard = ({e}) => {
+    const [message, setMessage] = useState(false);
+
     const {id,art,song} = e;
     //context 
     const {setData} = useContext(ContextFavorite);
 
     return (
         <div className='card'>
-            {/* <article>
+            <article>
                 <p>{art.strArtist}</p>
                 <p>{song}</p>
             </article>
-            <img onClick={setData} src={added} alt="fav" /> */}
-            {console.log(e)}            
-            {e && (
+            {message && <HoverMessage message={message} classname={"remove_message"}/>}
+            <img onMouseLeave={()=>setMessage(false)} onMouseEnter={()=>setMessage("remove")} onClick={setData} src={added} alt="fav" />
+            {/* {e && (
                 <>
                 <article>
                 <p>{art.strArtist}</p>
@@ -23,7 +26,7 @@ export const FavoritCard = ({e}) => {
                 </article>
                 <img onClick={()=>setData(e)} src={added} alt="fav" />
                 </>
-            )}            
+            )} */}            
         </div>
     )
 }
