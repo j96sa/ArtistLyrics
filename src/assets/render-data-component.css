@@ -9,7 +9,7 @@
 .render_data_component > img{
     width: 15%;
     max-width: 53px;
-    margin-top: 40px;
+    margin-top: 40px;    
 }
 
 
@@ -33,7 +33,7 @@
 
 
 .data-artist > img{        
-    width: 98%;        
+    width: 98%;           
 }
 .data-artist > button{
     background: transparent;

@@ -48,7 +48,8 @@
 }
 
 .card img{
-    width: 40px;    
+    width: 40px; 
+    position: relative;
 }
 
 /* *************************** MENSAJE AL HACER HOVER SOBRE EL BOTON DE FAV  ****** ****************************** */
