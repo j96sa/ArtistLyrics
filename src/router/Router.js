@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { HashRouter, Route, Routes } from "react-router-dom";
 import { Home } from "../components/Home";
 import { MyLIst } from "../components/MyLIst";
+import { MyListRender } from "../components/MyListRender";
 import { SearchResult } from "../components/SearchResult";
 import { ContextFavoriteProvider } from "../context/ContextFavorite";
 import { ContextResizeProvider } from "../context/ContextResize";
@@ -18,8 +19,8 @@ export const Router = () => {
       <ContextResizeProvider>
         <Routes>
           <Route exact path="/" element={<Home setCurrentComponent={setCurrentComponent} currentComponent={currentComponent}/>} />
-          <Route exact path="/my-list" element={<MyLIst setCurrentComponent={setCurrentComponent} currentComponent={currentComponent}/>} />
           <Route exact path="/searchresult/:artist/:song" element={<SearchResult/>} />
+          <Route path="/my-list/*" element={<MyLIst setCurrentComponent={setCurrentComponent} currentComponent={currentComponent}/>}/>          
         </Routes>
       </ContextResizeProvider>
       </ModesContextProvider>

@@ -42,9 +42,9 @@ export const SearchResult = () => {
         const getData = async()=>{
             let res = await Promise.all([audioDB,lyricDB]);                       
             let art = res[0].artists ?res[0].artists[0] :res[0].artists;
-            let lyric = res[1].lyrics ?res[1].lyrics :null ;
+            let lyric = res[1].lyrics ?res[1].lyrics :null ;            
             let id = (art && lyric) ?art.idArtist+(artist+song).toLowerCase() :null
-            setApiResponse({id,art,lyric});
+            setApiResponse({id,art,lyric,song});
         };
         getData();
     }, [artist,song]);

@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { useParams } from 'react-router';
 import "../assets/render-data-component.css";
 import scrollButton from "../assets/scroll-top.png";
 import add from "../assets/heart.png"
@@ -13,9 +12,7 @@ export const RenderDataComponent = ({data}) => {
     // estado para controlar el boton de Scroll-Top
     const [showScrollButton, setShowScrollButton] = useState(false);
     //constante qeu controla si se mostranran los detalles del artista o no en el modo mobile
-    const [showDetails, setShowDetails] = useState(false);
-    //para obtener el nombre de la cancion
-    let {song} = useParams();
+    const [showDetails, setShowDetails] = useState(false);    
     //estado para controlar si el resultado de busqueda esta ya en las favoritas 
     const {saved,setSaved,setData} = useContext(ContextFavorite);
     //estado par ael mensaje al hacer hover sobre el boton fav
@@ -24,7 +21,7 @@ export const RenderDataComponent = ({data}) => {
     /* VARIAS FUNCIONALIDADES */
     const handleClickImg = ()=>{
         //para enviar los datos a guardar en el store al CONTEXT 
-        setData({...data,song});
+        setData(data);
 
         //funcion para mostrar el mensaje en el boton de añadir a la lista de favoritos
         if(saved){
@@ -86,7 +83,7 @@ export const RenderDataComponent = ({data}) => {
                 }
             </article>
             <article className="data-song">
-                <h2 className="subtitle">{song}</h2>
+                <h2 className="subtitle">{data.song}</h2>
                 <p>{lyric}</p>                
             </article>
             {showScrollButton && <img onClick={()=>window.scrollTo({top:0,behavior:'smooth'})} className="scroll-button" src={scrollButton} alt="scroll-button" />}

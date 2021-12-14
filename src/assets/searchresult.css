@@ -25,6 +25,8 @@
    position: fixed;
    bottom: 25px;
    right: 25px;
+   max-width: 83px;
+   cursor: pointer;
 }
 
 

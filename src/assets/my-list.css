@@ -1,7 +1,7 @@
 .my-list{
     background: var(--dark-background);
     padding-bottom: 15px;
-    min-height: 100vh;
+    min-height: 100vh;    
 }
 
 
@@ -10,8 +10,13 @@
     margin-top: 50px;
     display: grid;
     grid-template-columns: repeat(auto-fill,minmax(290px, 1fr));
-    row-gap: 22px;
+    row-gap: 22px;    
 }
+.list-cards a{
+    text-decoration: none;
+    color: var(--font-color-normal);
+}
+
 .card{
     position: relative;
     display: flex;
@@ -23,7 +28,7 @@
     margin: auto;
     padding: 0 15px;
     transition: .1s ease-in;
-    cursor: pointer;    
+    cursor: pointer;        
 }
 /************************************** EFFECTO HOVER(-- TODO EL CARD --) */
 .card:hover{
@@ -35,11 +40,11 @@
 
 .card article{
     text-align: center;    
-    color: var(--color-render-title);
+    color: var(--color-render-title);    
 }
 .card article *{
     margin: 10px 0;
-    text-transform: capitalize;
+    text-transform: capitalize;    
 }
 
 .card img{
@@ -72,6 +77,9 @@
 }
 .my-list.light-mode .card:hover{    
     box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.43);
+}
+.my-list.light-mode .list-cards a{    
+    color: var(--dark-background);
 }
 
 

@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { useParams } from 'react-router';
+import scrollButton from "../assets/scroll-top.png";
 import "../assets/render-data-component-desktop.css";
 import add from "../assets/heart.png"
 import added from "../assets/heart-full.png";
@@ -8,8 +8,8 @@ import { HoverMessage } from './HoverMessage';
 
 export const RenderDataComponentDesktop = ({data}) => {
     const {id,art,lyric} = data;
-    //para obtener el nombre de la cancion
-    let {song} = useParams();
+    // estado para controlar el boton de Scroll-Top
+    const [showScrollButton, setShowScrollButton] = useState(false);
     //estado para controlar si el resultado de busqueda esta ya en las favoritas 
     const {saved,setSaved,setData} = useContext(ContextFavorite);
     //estado par ael mensaje al hacer hover sobre el boton fav
@@ -35,13 +35,22 @@ export const RenderDataComponentDesktop = ({data}) => {
         };
     };    
 
+    /* EFFECT PARA MOSTRAR EL SCROLL-TOP BUTTON */
+    useEffect(() => {
+        const showScrollTopButton = ()=>{
+            let {scrollTop} = document.documentElement;
+            scrollTop > 1100 ?setShowScrollButton(true) :setShowScrollButton(false); 
+        };
+        window.addEventListener("scroll",showScrollTopButton);
+        return()=>window.removeEventListener("scroll",showScrollTopButton);
+    });
     
 
     return (
         <div className="render_data_component-desktop">
             <section className={saved ?"data_desktop-header" :"data_desktop-header"}>
                 <h2>{art.strArtist}</h2>
-                <img onMouseLeave={()=>setMessage(false)} onMouseEnter={handleMosueEnter} onClick={()=>setData({...data,song})} src={saved ?added :add} alt="fav" />
+                <img onMouseLeave={()=>setMessage(false)} onMouseEnter={handleMosueEnter} onClick={()=>setData(data)} src={saved ?added :add} alt="fav" />
                 {message && <HoverMessage message={message} classname={"hover-message"}/>}
             </section>
             {art.strArtistBanner && <img src={art.strArtistBanner} alt={art.strArtist} />}
@@ -66,7 +75,7 @@ export const RenderDataComponentDesktop = ({data}) => {
                 </section>
                 <section className="data_desktop-lyric">
                     <article>
-                        <h2>{song}</h2>
+                        <h2>{data.song}</h2>
                         <p>{lyric}</p>
                     </article>
                 </section>
@@ -74,6 +83,7 @@ export const RenderDataComponentDesktop = ({data}) => {
                     <h2>Biography</h2>
                     <p>{art.strBiographyEN}</p>
                 </section>
+                {showScrollButton && <img onClick={()=>window.scrollTo({top:0,behavior:'smooth'})} className="scroll-button" src={scrollButton} alt="scroll-button" />}
             </section>
         </div>
     )
