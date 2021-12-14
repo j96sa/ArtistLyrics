@@ -5,7 +5,6 @@ import ModesContext from '../context/modesContext';
 import ContextFavorite from '../context/ContextFavorite';
 import { FavoritCard } from './FavoritCard';
 import { Route, Routes } from 'react-router-dom';
-import { RenderDataComponent } from './RenderDataComponent';
 import { MyListRender } from './MyListRender';
 
 export const MyLIst = ({setCurrentComponent,currentComponent}) => {

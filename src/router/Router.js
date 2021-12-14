@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { HashRouter, Route, Routes } from "react-router-dom";
 import { Home } from "../components/Home";
 import { MyLIst } from "../components/MyLIst";
-import { MyListRender } from "../components/MyListRender";
 import { SearchResult } from "../components/SearchResult";
 import { ContextFavoriteProvider } from "../context/ContextFavorite";
 import { ContextResizeProvider } from "../context/ContextResize";

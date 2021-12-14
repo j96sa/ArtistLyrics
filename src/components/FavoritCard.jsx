@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import added from "../assets/heart-full.png";
 import ContextFavorite from '../context/ContextFavorite';
 import { HoverMessage } from './HoverMessage';
@@ -12,8 +12,7 @@ export const FavoritCard = ({e}) => {
     //PARA REDIRECCIONAR AL ELEMENTO
     const nav = useNavigate();
 
-    const handleRemoveElement = (event)=>{
-        console.log(event.target);
+    const handleRemoveElement = (event)=>{        
         event.stopPropagation();
         //event.nativeEvent.stopImmediatePropagation();
         setData(e);
