@@ -1,0 +1,34 @@
+{
+  "files": {
+    "main.css": "/j96sa/ArtistLyrics/static/css/main.27e6f67f.chunk.css",
+    "main.js": "/j96sa/ArtistLyrics/static/js/main.2fb9740d.chunk.js",
+    "main.js.map": "/j96sa/ArtistLyrics/static/js/main.2fb9740d.chunk.js.map",
+    "runtime-main.js": "/j96sa/ArtistLyrics/static/js/runtime-main.7c9414e2.js",
+    "runtime-main.js.map": "/j96sa/ArtistLyrics/static/js/runtime-main.7c9414e2.js.map",
+    "static/js/2.4ac5cde5.chunk.js": "/j96sa/ArtistLyrics/static/js/2.4ac5cde5.chunk.js",
+    "static/js/2.4ac5cde5.chunk.js.map": "/j96sa/ArtistLyrics/static/js/2.4ac5cde5.chunk.js.map",
+    "static/js/3.9ac6fe77.chunk.js": "/j96sa/ArtistLyrics/static/js/3.9ac6fe77.chunk.js",
+    "static/js/3.9ac6fe77.chunk.js.map": "/j96sa/ArtistLyrics/static/js/3.9ac6fe77.chunk.js.map",
+    "index.html": "/j96sa/ArtistLyrics/index.html",
+    "static/css/main.27e6f67f.chunk.css.map": "/j96sa/ArtistLyrics/static/css/main.27e6f67f.chunk.css.map",
+    "static/js/2.4ac5cde5.chunk.js.LICENSE.txt": "/j96sa/ArtistLyrics/static/js/2.4ac5cde5.chunk.js.LICENSE.txt",
+    "static/media/404.db5ada9f.svg": "/j96sa/ArtistLyrics/static/media/404.db5ada9f.svg",
+    "static/media/heart-full.9460adc3.png": "/j96sa/ArtistLyrics/static/media/heart-full.9460adc3.png",
+    "static/media/heart.ccdb8b16.png": "/j96sa/ArtistLyrics/static/media/heart.ccdb8b16.png",
+    "static/media/music0.d99964f8.png": "/j96sa/ArtistLyrics/static/media/music0.d99964f8.png",
+    "static/media/music1.2d8dd5c7.png": "/j96sa/ArtistLyrics/static/media/music1.2d8dd5c7.png",
+    "static/media/music2.e70ea62c.png": "/j96sa/ArtistLyrics/static/media/music2.e70ea62c.png",
+    "static/media/music3.4130ab25.png": "/j96sa/ArtistLyrics/static/media/music3.4130ab25.png",
+    "static/media/music4.6851b356.png": "/j96sa/ArtistLyrics/static/media/music4.6851b356.png",
+    "static/media/music5.aa1e5f1f.png": "/j96sa/ArtistLyrics/static/media/music5.aa1e5f1f.png",
+    "static/media/music6.ca87b17c.png": "/j96sa/ArtistLyrics/static/media/music6.ca87b17c.png",
+    "static/media/scroll-top.2dde16b6.png": "/j96sa/ArtistLyrics/static/media/scroll-top.2dde16b6.png",
+    "static/media/tail-spin.19dcc6dd.svg": "/j96sa/ArtistLyrics/static/media/tail-spin.19dcc6dd.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.7c9414e2.js",
+    "static/js/2.4ac5cde5.chunk.js",
+    "static/css/main.27e6f67f.chunk.css",
+    "static/js/main.2fb9740d.chunk.js"
+  ]
+}
