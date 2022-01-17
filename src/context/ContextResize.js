@@ -1,7 +1,7 @@
 import { createContext, useState } from "react";
 
 const ContextResize = createContext();
-const ContextResizeProvider = ({children})=>{
+export const ContextResizeProvider = ({children})=>{
     const [onDesktop, setOnDesktop] = useState(false);
 
     const resize = ()=>{
@@ -16,5 +16,5 @@ const ContextResizeProvider = ({children})=>{
     let data = {resize,onDesktop,width};
     return(<ContextResize.Provider value={data}>{children}</ContextResize.Provider>);
 };
-export {ContextResizeProvider};
+//export {ContextResizeProvider};
 export default ContextResize;

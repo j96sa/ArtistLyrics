@@ -3,7 +3,7 @@ import { createContext, useEffect, useState } from "react";
 const ls = localStorage;
 
 const ContextFavorite = createContext();
-const ContextFavoriteProvider = ({children})=>{
+export const ContextFavoriteProvider = ({children})=>{
     
     const [list, setList] = useState(JSON.parse(ls.getItem("favorite-list")) || []);
     const [saved, setSaved] = useState(false);
@@ -34,5 +34,5 @@ const ContextFavoriteProvider = ({children})=>{
 
     return <ContextFavorite.Provider value={value}>{children}</ContextFavorite.Provider>
 };
-export {ContextFavoriteProvider};
+//export {ContextFavoriteProvider};
 export default ContextFavorite;
