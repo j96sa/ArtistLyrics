@@ -17,7 +17,8 @@ export const MyListRender = () => {
     },[]);
 
     return (
-        <>          
+        <> 
+        {/* {console.log(element)} */}         
         {onDesktop ?<RenderDataComponentDesktop data={element} /> :<RenderDataComponent data={element} />}
         </>
     )

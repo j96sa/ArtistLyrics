@@ -37,20 +37,19 @@ export const SearchResult = () => {
 
     /* EFFECTO PARA OBTENER LOS DATOS DE LA BUSQUEDA */
     useEffect(() => {
-        const audioDB = fetch(`https://theaudiodb.com/api/v1/json/2/search.php?s=${artist}`).then(res=>res.json());
-        const lyricDB = fetch(`https://api.lyrics.ovh/v1/${artist}/${song}`).then(res=>res.json());
+        const audioDB = fetch(`https://theaudiodb.com/api/v1/json/2/search.php?s=${artist}`).then(res=>res.json()),
+        lyricDB = fetch(`https://api.lyrics.ovh/v1/${artist}/${song}`).then(res=>res.json());
         const getData = async()=>{
-            const res = await Promise.all([audioDB,lyricDB]);                       
-            const art = res[0].artists ?res[0].artists[0] :res[0].artists;
-            const lyric = res[1].lyrics ?res[1].lyrics :null ;            
-            const id = (art && lyric) ?art.idArtist+(artist+song).toLowerCase() :null
+            const res = await Promise.all([audioDB,lyricDB]),
+            art = res[0].artists ?res[0].artists[0] :res[0].artists,
+            lyric = res[1].lyrics ?res[1].lyrics :null,
+            id = (art && lyric) ?art.idArtist+(artist+song).toLowerCase() :null;
             setApiResponse({id,art,lyric,song});
         };
         getData();
     }, [artist,song]);
     
-    return (
-        /* ?(onDesktop && onDesktop. ?<RenderDataComponentDesktop data={apiResponse}/> :<RenderDataComponent data={apiResponse}/>) */
+    return (        
         <div className={lightMode ?"search-result light-mode" :"search-result"}>            
             <Header/>                        
             {apiResponse             

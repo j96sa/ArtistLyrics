@@ -7,6 +7,10 @@ import ContextFavorite from '../context/ContextFavorite';
 import { HoverMessage } from './HoverMessage';
 
 export const RenderDataComponentDesktop = ({data}) => {
+    /*  */
+    console.log(data);
+    /*  */
+
     const {id,art,lyric} = data;
     // estado para controlar el boton de Scroll-Top
     const [showScrollButton, setShowScrollButton] = useState(false);
