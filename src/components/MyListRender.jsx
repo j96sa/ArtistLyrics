@@ -6,9 +6,13 @@ import { RenderDataComponentDesktop } from './RenderDataComponentDesktop';
 
 
 export const MyListRender = () => {
-    const {onDesktop,width,resize} = useContext(ContextResize);
+    //
     const {id} = useParams();
+    //context
+    const {onDesktop,width,resize} = useContext(ContextResize);
+    //
     const element = JSON.parse(localStorage.getItem("favorite-list")).find(e=>e.id===id);    
+    const [item] = useState(element);
 
     useEffect(() => {
         width();
@@ -19,7 +23,7 @@ export const MyListRender = () => {
     return (
         <> 
         {/* {console.log(element)} */}         
-        {onDesktop ?<RenderDataComponentDesktop data={element} /> :<RenderDataComponent data={element} />}
+        {onDesktop ?<RenderDataComponentDesktop data={item} /> :<RenderDataComponent data={item} />}
         </>
     )
 }

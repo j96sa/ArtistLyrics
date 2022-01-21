@@ -8,15 +8,16 @@ import { HoverMessage } from './HoverMessage';
 
 
 export const RenderDataComponent = ({data}) => {
-    const {id,art,lyric} = data;
+    //estado para controlar si el resultado de busqueda esta ya en las favoritas 
+    const {saved,setSaved,setData} = useContext(ContextFavorite);
     // estado para controlar el boton de Scroll-Top
     const [showScrollButton, setShowScrollButton] = useState(false);
     //constante qeu controla si se mostranran los detalles del artista o no en el modo mobile
     const [showDetails, setShowDetails] = useState(false);    
-    //estado para controlar si el resultado de busqueda esta ya en las favoritas 
-    const {saved,setSaved,setData} = useContext(ContextFavorite);
     //estado par ael mensaje al hacer hover sobre el boton fav
     const [message, setMessage] = useState(false);
+    //
+    const {id,art,lyric} = data;
 
     /* VARIAS FUNCIONALIDADES */
     const handleClickImg = ()=>{

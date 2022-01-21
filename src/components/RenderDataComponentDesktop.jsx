@@ -10,14 +10,15 @@ export const RenderDataComponentDesktop = ({data}) => {
     /*  */
     console.log(data);
     /*  */
-
-    const {id,art,lyric} = data;
-    // estado para controlar el boton de Scroll-Top
-    const [showScrollButton, setShowScrollButton] = useState(false);
+    
     //estado para controlar si el resultado de busqueda esta ya en las favoritas 
     const {saved,setSaved,setData} = useContext(ContextFavorite);
-    //estado par ael mensaje al hacer hover sobre el boton fav
+    // estado para controlar el boton de Scroll-Top
+    const [showScrollButton, setShowScrollButton] = useState(false);
+    //estado para el mensaje al hacer hover sobre el boton fav
     const [message, setMessage] = useState(false);
+    //
+    const {id,art,lyric} = data;
 
     
     /* EFFECT PARA SABER SI EL ELEMENTO ESTA EN MY-LIST */

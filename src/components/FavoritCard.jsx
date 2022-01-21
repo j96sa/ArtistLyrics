@@ -5,16 +5,16 @@ import ContextFavorite from '../context/ContextFavorite';
 import { HoverMessage } from './HoverMessage';
 
 export const FavoritCard = ({e}) => {
-    const [message, setMessage] = useState(false);        
-    const {id,art,song} = e;
     //context 
     const {setData} = useContext(ContextFavorite);
     //PARA REDIRECCIONAR AL ELEMENTO
     const nav = useNavigate();
+    //
+    const [message, setMessage] = useState(false);        
+    const {id,art,song} = e;
 
     const handleRemoveElement = (event)=>{        
-        event.stopPropagation();
-        //event.nativeEvent.stopImmediatePropagation();
+        event.stopPropagation();        
         setData(e);
     };
 

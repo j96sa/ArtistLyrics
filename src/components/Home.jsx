@@ -14,17 +14,18 @@ import ModesContext from "../context/modesContext";
 import ContextResize from "../context/ContextResize";
 
 export const Home = ({setCurrentComponent,currentComponent}) => {
+  //contenido del form para insertar en el la ruta del navegador para hacer las peticiones a la API
+  const navigate = useNavigate();
   //context que controla el estado de los modos dark & light
   const {setLightMode} = useContext(ModesContext);
   //estado para validar si mostrar el contenido del modo Desktop;
   const {width,resize,onDesktop} = useContext(ContextResize);
   //estados para modificar las imagenes del home  
   const [index, setIndex] = useState(0);  
+  //
+  const [form, setForm] = useState({artist:"",song:""});
   //array de imagenes del Home
   const imgArr = [imgMusic0,imgMusic1,imgMusic2,imgMusic3,imgMusic4,imgMusic5,imgMusic6];    
-  //contenido del form para insertar en el la ruta del navegador para hacer las peticiones a la API
-  const navigate = useNavigate();
-  const [form, setForm] = useState({artist:"",song:""});
 
   
   /* FUNCION PARA CAMBIAR LAS IMAGENES DEL HOME */
