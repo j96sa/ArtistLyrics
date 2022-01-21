@@ -39,44 +39,59 @@
     background: #12042566;    
 }
 
-
-.data_desktop-artist{
-    position: relative;
+.data_desktop-content{
+    margin-top: 40px;
 }
-.data_desktop-artist img{
-    position: absolute;
-    width: 30%;     
+
+/* ARTIST-HERO */
+.artist-hero{
+    display: flex;
+}
+.artist_img{    
+    height:560px ;
+}
+
+.data_desktop-artist{    
+    width: 70%;
+}
+.data_desktop-artist img{    
+    position: relative;
+    width: 50%;     
     transition: .5s; 
 }
 .data_desktop-artist img:first-child{
-    left: 30px;
-    top: 50px;
+    left: 0px;
+    top: 0px;
 }
 .data_desktop-artist img:nth-child(2){
-    left: 400px;
-    top: 300px;
+    left: -80px;
+    top: 220px;
 }
 
 
-.data_desktop-details{
-    position: absolute;
-    top: 700px;
-    left: 25%; 
-    font-size: var(--font-size-normal);
+.data_desktop-details{    
+    margin-top: 50px;
+    font-size: var(--font-size-normal);    
 }
 .data_desktop-details p span{
     color: var(--color-render-title);
 }
+.data_desktop-details .details-socials{
+    width: 50%;
+    margin: auto;    
+}
+.data_desktop-details .details-socials .socials-links{
+    margin-top: 20px;    
+}
 
 
-.data_desktop-lyric{    
-    display: flex;
-    justify-content: flex-end;
+.data_desktop-lyric{        
     text-align: center;
     padding-right: 30px;
+    width: 30%;
 }
 .data_desktop-lyric article{
-    width: 30%;
+    width: 100%;
 }
 .data_desktop-lyric article > h2{
     color: var(--color-render-title);
@@ -86,7 +101,7 @@
 
 
 .data_desktop-biography h2{
-    margin: 220px 0 10px 0;
+    margin:80px 0 10px 0;
     font-size: var(--font-size-title);
     color: var(--color-render-title);
 }

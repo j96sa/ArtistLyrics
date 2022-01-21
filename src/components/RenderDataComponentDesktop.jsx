@@ -60,30 +60,34 @@ export const RenderDataComponentDesktop = ({data}) => {
             </section>
             {art.strArtistBanner && <img src={art.strArtistBanner} alt={art.strArtist} />}
             <section className="data_desktop-content">
-                <section className="data_desktop-artist">
-                    {art.strArtistFanart ?<img src={art.strArtistFanart} alt="img" /> :<img src={art.strArtistFanart3} alt="img" />}
-                    {art.strArtistFanart2 ?<img src={art.strArtistFanart2} alt="img" /> :<img src={art.strArtistFanart4} alt="img" />}
-                    <section className="data_desktop-details">
-                        <p><span>musical style: </span>{art.strGenre} & {art.strStyle}</p>
-                        <p><span>country: </span>{art.strCountry}</p>
-                        <p><span>born: </span>{art.intBornYear}{art.intDiedYear && "-" + art.intDiedYear}</p>
-                        <p><span>gender: </span>{art.strGender}</p>
-                        <section className="details-socials">                        
-                            <p>socials</p>
-                            <section className="socials-links">
-                                {art.strTwitter && <button onClick={()=>redirect(art.strTwitter)}>twiter</button>}
-                                {art.strWebsite && <button onClick={()=>redirect(art.strWebsite)}>website</button>}
-                                {art.strFacebook && <button onClick={()=>redirect(art.strFacebook)}>facebook</button>}
+                <div className='artist-hero'>
+                    <section className="data_desktop-artist">
+                        <figure className='artist_img'>
+                            {art.strArtistFanart ?<img src={art.strArtistFanart} alt="img" /> :<img src={art.strArtistFanart3} alt="img" />}
+                            {art.strArtistFanart2 ?<img src={art.strArtistFanart2} alt="img" /> :<img src={art.strArtistFanart4} alt="img" />}
+                        </figure>
+                        <section className="data_desktop-details">
+                            <p><span>musical style: </span>{art.strGenre} & {art.strStyle}</p>
+                            <p><span>country: </span>{art.strCountry}</p>
+                            <p><span>born: </span>{art.intBornYear}{art.intDiedYear && "-" + art.intDiedYear}</p>
+                            <p><span>gender: </span>{art.strGender}</p>
+                            <section className="details-socials">                        
+                                <p>socials</p>
+                                <section className="socials-links">
+                                    {art.strTwitter && <button onClick={()=>redirect(art.strTwitter)}>twiter</button>}
+                                    {art.strWebsite && <button onClick={()=>redirect(art.strWebsite)}>website</button>}
+                                    {art.strFacebook && <button onClick={()=>redirect(art.strFacebook)}>facebook</button>}
+                                </section>
                             </section>
                         </section>
                     </section>
-                </section>
-                <section className="data_desktop-lyric">
-                    <article>
-                        <h2>{data.song}</h2>
-                        <p>{lyric}</p>
-                    </article>
-                </section>
+                    <section className="data_desktop-lyric">
+                        <article>
+                            <h2>{data.song}</h2>
+                            <p>{lyric}</p>
+                        </article>
+                    </section>
+                </div>
                 <section className="data_desktop-biography">
                     <h2>Biography</h2>
                     <p>{art.strBiographyEN}</p>
