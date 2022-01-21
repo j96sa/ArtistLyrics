@@ -5,6 +5,7 @@ import add from "../assets/heart.png"
 import added from "../assets/heart-full.png";
 import ContextFavorite from '../context/ContextFavorite';
 import { HoverMessage } from './HoverMessage';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 
 export const RenderDataComponent = ({data}) => {
@@ -19,11 +20,25 @@ export const RenderDataComponent = ({data}) => {
     //
     const {id,art,lyric} = data;
 
+    /* **********************************************************************FIXING */
+
+    //console.log(data);
+    const nav = useNavigate();
+    const path = useLocation().pathname;
+    
+    path.includes("/my-list/") ?console.log(path) :console.log("null");
+    /* **********************************************************************FIXING */    
+
+    
     /* VARIAS FUNCIONALIDADES */
-    const handleClickImg = ()=>{
+    const handleClickImg = ()=>{        
         //para enviar los datos a guardar en el store al CONTEXT 
         setData(data);
-
+        
+        /************************************************************** FIXING */        
+        path.includes("/my-list/") && nav("/my-list");
+        /* ************************************************************ FIXING */
+        
         //funcion para mostrar el mensaje en el boton de añadir a la lista de favoritos
         if(saved){
             setMessage("removed from my-list");

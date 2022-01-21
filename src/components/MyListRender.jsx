@@ -11,8 +11,7 @@ export const MyListRender = () => {
     //context
     const {onDesktop,width,resize} = useContext(ContextResize);
     //
-    const element = JSON.parse(localStorage.getItem("favorite-list")).find(e=>e.id===id);    
-    const [item] = useState(element);
+    const element = JSON.parse(localStorage.getItem("favorite-list")).find(e=>e.id===id);        
 
     useEffect(() => {
         width();
@@ -21,9 +20,8 @@ export const MyListRender = () => {
     },[]);
 
     return (
-        <> 
-        {/* {console.log(element)} */}         
-        {onDesktop ?<RenderDataComponentDesktop data={item} /> :<RenderDataComponent data={item} />}
+        <>                
+        {onDesktop ?<RenderDataComponentDesktop data={element} /> :<RenderDataComponent data={element} />}
         </>
     )
 }

@@ -5,11 +5,24 @@ import add from "../assets/heart.png"
 import added from "../assets/heart-full.png";
 import ContextFavorite from '../context/ContextFavorite';
 import { HoverMessage } from './HoverMessage';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 export const RenderDataComponentDesktop = ({data}) => {
-    /*  */
-    console.log(data);
-    /*  */
+    /* FIXING */
+
+    //console.log(data);
+    const nav = useNavigate();
+    const path = useLocation().pathname;
+    
+    path.includes("/my-list/") ?console.log(path) :console.log("null");
+    /* FIXING */
+
+    /* FIXING */
+    const fixing = ()=>{
+        setData(data);        
+        path.includes("/my-list/") && nav("/my-list");
+    };
+    /* FIXING */
     
     //estado para controlar si el resultado de busqueda esta ya en las favoritas 
     const {saved,setSaved,setData} = useContext(ContextFavorite);
@@ -49,13 +62,12 @@ export const RenderDataComponentDesktop = ({data}) => {
         window.addEventListener("scroll",showScrollTopButton);
         return()=>window.removeEventListener("scroll",showScrollTopButton);
     });
-    
 
     return (
         <div className="render_data_component-desktop">
             <section className={saved ?"data_desktop-header" :"data_desktop-header"}>
                 <h2>{art.strArtist}</h2>
-                <img onMouseLeave={()=>setMessage(false)} onMouseEnter={handleMosueEnter} onClick={()=>setData(data)} src={saved ?added :add} alt="fav" />
+                <img onMouseLeave={()=>setMessage(false)} onMouseEnter={handleMosueEnter} onClick={/* ()=>setData(data) */fixing} src={saved ?added :add} alt="fav" />
                 {message && <HoverMessage message={message} classname={"hover-message"}/>}
             </section>
             {art.strArtistBanner && <img src={art.strArtistBanner} alt={art.strArtist} />}
