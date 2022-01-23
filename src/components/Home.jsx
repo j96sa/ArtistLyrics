@@ -1,4 +1,4 @@
-import React, { useContext, useEffect,useState } from "react";
+import React, { useContext, useEffect,useLayoutEffect,useState } from "react";
 import { Header } from "./Header";
 import "../assets/home.css";
 //imagenes para cambiar en el home
@@ -29,7 +29,7 @@ export const Home = ({setCurrentComponent,currentComponent}) => {
 
   
   /* FUNCION PARA CAMBIAR LAS IMAGENES DEL HOME */
-  useEffect(() => {
+  useLayoutEffect(() => {
     let switchInterval = setInterval(()=>{
       index<imgArr.length-1
       ?setIndex(index + 1)

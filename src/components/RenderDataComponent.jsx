@@ -72,7 +72,7 @@ export const RenderDataComponent = ({data}) => {
             <article className="data-artist">
                 <h2 className="subtitle">{art.strArtist}</h2>
                 <img src={art.strArtistFanart ?art.strArtistFanart :art.strArtistFanart2} alt={art.strArtist} />
-                <button onClick={()=>setShowDetails(!showDetails)}>{showDetails?"hide details" :"show more details"}</button>   
+                <button onClick={()=>setShowDetails(!showDetails)}>{showDetails?"hide details" :"show details"}</button>   
                 {showDetails && 
                     <section className="data_artist-details">
                         <p><span>musical style: </span>{art.strGenre} & {art.strStyle}</p>

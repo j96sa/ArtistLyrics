@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useLayoutEffect, useState } from 'react'
 import { useParams } from 'react-router'
 import { Header } from './Header';
 import "../assets/searchresult.css";
@@ -26,7 +26,7 @@ export const SearchResult = () => {
     }, []);
 
     /* EFFECT PARA CONTROLAR EN QUE TIPO DE DISPOSITIVO SE ENCUENTRA */
-    useEffect(() => {
+    useLayoutEffect(() => {
         window.addEventListener("resize",resize);
         return()=>window.removeEventListener("resize",resize);   
     });

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useLayoutEffect } from 'react'
 import { useParams } from 'react-router-dom';
 import ContextResize from '../context/ContextResize'
 import { RenderDataComponent } from './RenderDataComponent';
@@ -13,7 +13,7 @@ export const MyListRender = () => {
     //
     const element = JSON.parse(localStorage.getItem("favorite-list")).find(e=>e.id===id);        
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         width();
         window.addEventListener("resize",resize);
         return()=>{window.removeEventListener("resize",resize)};
