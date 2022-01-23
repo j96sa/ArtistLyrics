@@ -29,7 +29,7 @@ export const Home = ({setCurrentComponent,currentComponent}) => {
 
   
   /* FUNCION PARA CAMBIAR LAS IMAGENES DEL HOME */
-  useLayoutEffect(() => {
+  useEffect(() => {
     let switchInterval = setInterval(()=>{
       index<imgArr.length-1
       ?setIndex(index + 1)
@@ -40,7 +40,7 @@ export const Home = ({setCurrentComponent,currentComponent}) => {
   
 
   /* FUNCION PARA MODIFICAR EL CONTENIDO DEL HOME EN DEPENDENCIA DEL MODO EN EL QUE SE ENCUENTRE */
-  useEffect(() => {
+  useLayoutEffect(() => {
     window.addEventListener("resize",resize);
     return()=>window.removeEventListener("resize",resize); 
   });
