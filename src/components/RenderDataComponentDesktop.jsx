@@ -8,22 +8,9 @@ import { HoverMessage } from './HoverMessage';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 export const RenderDataComponentDesktop = ({data}) => {
-    /* FIXING */
 
-    //console.log(data);
     const nav = useNavigate();
     const path = useLocation().pathname;
-    
-    path.includes("/my-list/") ?console.log(path) :console.log("null");
-    /* FIXING */
-
-    /* FIXING */
-    const fixing = ()=>{
-        setData(data);        
-        path.includes("/my-list/") && nav("/my-list");
-    };
-    /* FIXING */
-    
     //estado para controlar si el resultado de busqueda esta ya en las favoritas 
     const {saved,setSaved,setData} = useContext(ContextFavorite);
     // estado para controlar el boton de Scroll-Top
@@ -42,6 +29,13 @@ export const RenderDataComponentDesktop = ({data}) => {
     // funcion para link externos de las paginas de los artistas
     const redirect = (url)=>{
       window.location.href = `https://${url}`;
+    };
+
+    //funcion para remover el elemento
+    const handleRemoveElement = ()=>{
+        setData(data);
+        //validacion para saber si se redicciona al eliminar el elemento de my-list(cuando se elimine desde my-list)     
+        path.includes("/my-list/") && nav("/my-list");
     };
 
     //funcion para mostrar el mensaje en el boton de añadir a la lista de favoritos
@@ -67,7 +61,7 @@ export const RenderDataComponentDesktop = ({data}) => {
         <div className="render_data_component-desktop">
             <section className={saved ?"data_desktop-header" :"data_desktop-header"}>
                 <h2>{art.strArtist}</h2>
-                <img onMouseLeave={()=>setMessage(false)} onMouseEnter={handleMosueEnter} onClick={/* ()=>setData(data) */fixing} src={saved ?added :add} alt="fav" />
+                <img onMouseLeave={()=>setMessage(false)} onMouseEnter={handleMosueEnter} onClick={handleRemoveElement} src={saved ?added :add} alt="fav" />
                 {message && <HoverMessage message={message} classname={"hover-message"}/>}
             </section>
             {art.strArtistBanner && <img src={art.strArtistBanner} alt={art.strArtist} />}

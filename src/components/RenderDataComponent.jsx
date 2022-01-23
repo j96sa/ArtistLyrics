@@ -9,6 +9,9 @@ import { useLocation, useNavigate } from 'react-router-dom';
 
 
 export const RenderDataComponent = ({data}) => {
+    
+    const nav = useNavigate();
+    const path = useLocation().pathname;
     //estado para controlar si el resultado de busqueda esta ya en las favoritas 
     const {saved,setSaved,setData} = useContext(ContextFavorite);
     // estado para controlar el boton de Scroll-Top
@@ -18,27 +21,17 @@ export const RenderDataComponent = ({data}) => {
     //estado par ael mensaje al hacer hover sobre el boton fav
     const [message, setMessage] = useState(false);
     //
-    const {id,art,lyric} = data;
-
-    /* **********************************************************************FIXING */
-
-    //console.log(data);
-    const nav = useNavigate();
-    const path = useLocation().pathname;
-    
-    path.includes("/my-list/") ?console.log(path) :console.log("null");
-    /* **********************************************************************FIXING */    
+    const {id,art,lyric} = data;   
 
     
     /* VARIAS FUNCIONALIDADES */
     const handleClickImg = ()=>{        
         //para enviar los datos a guardar en el store al CONTEXT 
         setData(data);
-        
-        /************************************************************** FIXING */        
+
+        //validacion para saber si se redicciona al eliminar el elemento de my-list(cuando se elimine desde my-list) 
         path.includes("/my-list/") && nav("/my-list");
-        /* ************************************************************ FIXING */
-        
+                
         //funcion para mostrar el mensaje en el boton de añadir a la lista de favoritos
         if(saved){
             setMessage("removed from my-list");
