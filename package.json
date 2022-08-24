@@ -1,5 +1,5 @@
 {
-  "homepage": "https://github.com/j96sa/ArtistLyrics",
+  "homepage": "https://j96sa.github.io/ArtistLyrics",
   "name": "currently",
   "version": "0.1.0",
   "private": true,
@@ -11,7 +11,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-router-dom": "^6.0.2",
-    "react-scripts": "4.0.3",
+    "react-scripts": "^4.0.3",
     "web-vitals": "^1.0.1"
   },
   "scripts": {
